@@ -33,8 +33,8 @@ export class PublisherService {
         };
         this.queueService.add(queueData);
       });
-      return true;
-    } else return {};
+    }
+    return {};
   }
 
   public sendRequest(queueData: QueueDataDTO): Observable<AxiosResponse> {

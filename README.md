@@ -72,6 +72,10 @@ Contains logic to subscribe to a topic and manages the queue service as well.
 
 Note that there are unit tests in all of the services to test the service bit.
 
+# API Docs
+
+Exported Postman JSON can be accessed [here](https://www.getpostman.com/collections/328a9ad137d5f7443257)
+
 ## Thought Process
 
 ### Requirement
