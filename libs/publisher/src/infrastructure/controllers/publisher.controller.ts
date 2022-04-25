@@ -9,9 +9,12 @@ export class PublisherController {
   constructor(private publisherService: PublisherService) {}
 
   @Post('/:topic')
-  async publishToTopic(@Body() payload: object, @Param('topic') topic: string) {
+  async publishToTopic(
+    @Body() body: { payload: object },
+    @Param('topic') topic: string,
+  ) {
     const acknowledgement = await this.publisherService.publishToTopic({
-      payload,
+      payload: body.payload,
       topic,
     });
 

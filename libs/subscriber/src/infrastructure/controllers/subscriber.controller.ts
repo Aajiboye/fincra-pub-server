@@ -8,10 +8,13 @@ import { ApiTags } from '@nestjs/swagger';
 export class SubscriberController {
   constructor(private subscriberService: SubscriptionService) {}
 
-  @Post(':/topic')
-  async create(@Body() url: string, @Param('topic') topic: string) {
+  @Post('/:topic')
+  async create(@Body() body: { url: string }, @Param('topic') topic: string) {
     const newSubscription =
-      await this.subscriberService.subscribeToPublisherTopic({ url, topic });
+      await this.subscriberService.subscribeToPublisherTopic({
+        url: body.url,
+        topic,
+      });
 
     return new APIResponse(newSubscription, HttpStatus.CREATED, 'Created');
   }
